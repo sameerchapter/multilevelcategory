@@ -7,13 +7,11 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-        <!-- Styles -->
-       
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.css" type="text/css"> 
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+  <script src="https://pingendo.com/assets/bootstrap/bootstrap-4.0.0-alpha.6.min.js"></script>       
     </head>
   <body>
  <div class="container">
@@ -25,7 +23,7 @@
       @php $i=0 @endphp
       @foreach($categories as $res)
          @if($i%3==0 && $i!=0)
-       </div><div class="row"><br>
+       </div><br><div class="row">
         @endif
           <div class="col-md-4">
           <div class="card">
@@ -36,7 +34,7 @@
                          $price=get_price($res);
 
                         @endphp
-              <p class="card-text p-y-1">Rs. {{number_format($price,2)}}</p>
+              <p class="card-text p-y-1">Rs. {{number_format($price,2)}} @php echo count($res->children)>0?"(".number_format($res->price,2)." + ".number_format($price-$res->price,2).")":'' @endphp</p>
                   @if(count($res->children)>0)
               <a href="{{ url('/').'/'.$res->id }}" class="card-link mr-4">Childs</a>
               @endif

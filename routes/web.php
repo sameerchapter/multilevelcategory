@@ -16,4 +16,4 @@ Route::get('/add-category','CategoryController@create');
 Route::post('/store-category','CategoryController@store');
 Route::get('/{id}','CategoryController@subcategory');
 Route::get('/order/{id}','CategoryController@order');
-Route::post('/stripe','CategoryController@stripe');
+Route::post('/stripe','StripeController@index');
