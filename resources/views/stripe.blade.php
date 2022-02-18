@@ -28,6 +28,17 @@
         .credit-card-box .display-tr {
             display: table-row;
         }
+        #contact{
+    
+    font-family: 'Teko', sans-serif;
+  padding-top: 60px;
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  background: #3a6186; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #3a6186 , #89253e); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *
+}
     </style>
     <!-- JavaScripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -35,16 +46,15 @@
     
 </head>
 <body id="app-layout">
+    <div id="contact">
 <div class="container">
     <div class="row" style="margin-top: 100px;">
       <div class="col-md-6 col-md-offset-3">
         <div class="panel panel-default credit-card-box">
             <div class="panel-heading display-table" >
-                <div class="row display-tr" >
-                    <h3 class="panel-title display-td" >Payment Details</h3>
-                    <div class="display-td" >                            
-                        <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
-                    </div>
+                <div class="row" >
+                    <h4 class="text-center">Payment Details</h4>
+                  
                 </div>                    
             </div>
             <div class="panel-body">
@@ -75,7 +85,7 @@
                           
                     </div>
                       <div class="form-group">
-                          <button id="card-button" class="btn btn-lg btn-block btn-success btn-order">Place order !</button>
+                          <button id="card-button" style="color:#3a6186" class="btn  btn-block btn-order">Place order !</button>
                       </div>
                       <div class="row">
                         <div class="col-md-12">
@@ -91,7 +101,7 @@
     </div>
     
 </div>
-    
+    </div>
     <!-- PARSLEY -->
     <script>
         window.ParsleyConfig = {

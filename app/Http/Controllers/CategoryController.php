@@ -51,9 +51,17 @@ class CategoryController extends Controller
         $new_category=new Category();
         $new_category->title=$request->category_title;
         $new_category->description=$request->category_description;
+        $new_category->price=$request->category_price;
         if(!empty($request->parent_category))
         {    
         $new_category->parent_id=$request->parent_category;
+        }
+         if ($request->hasFile('category_image')) {
+        $image = $request->file('category_image');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/images');
+        $image->move($destinationPath, $name);
+        $new_category->image=$name;
         }
         $new_category->save();
         return redirect()->back()->with('success','Category Created Successfuly !');

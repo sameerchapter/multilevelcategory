@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/','CategoryController@index');
+Route::group(['middleware' => ['auth']], function () { 
 Route::get('/add-category','CategoryController@create');
 Route::post('/store-category','CategoryController@store');
-Route::get('/{id}','CategoryController@subcategory');
 Route::get('/order/{id}','CategoryController@order');
 Route::post('/stripe','StripeController@index');
+});
+
+Route::get('/','CategoryController@index');
+Route::get('/category/{id}','CategoryController@subcategory');
+Route::get('login', 'CustomAuthController@index')->name('login');
+Route::post('/login','CustomAuthController@customLogin');
+Route::get('/registration','CustomAuthController@registration');
