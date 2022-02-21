@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use bcrypt;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class CustomAuthController extends Controller
 {
@@ -30,12 +32,21 @@ class CustomAuthController extends Controller
         return redirect("login")->withSuccess('Login details are not valid');
     }
 
-   public function registration(Request $request)
-   { 
+   public function adduser(Request $request)
+    { 
+   //  $user=User::find(3);
+   //  dd($user->assignRole($request->input('supadmin')));
+   // $role = Role::create(['name' => 'supadmin']);
+   //$roles=Role::all();
+   // $permission = Permission::create(['guard_name' => 'web', 'name' => 'all']);
+//$role[0]->syncPermissions('all');
+   // $permission = Permission::get();
+
+     // dd($roles[0]->syncPermissions('all'));
       $user = new User();
-$user->password = bcrypt('12345');
-$user->email = 'sameer.k@chapter247.com';
-$user->full_name = 'Sameer Khan';
-$user->save();
+      $user->password = 123456;
+      $user->email = 'test.k@chapter247.com';
+      $user->full_name = 'Sameer Khan';
+      $user->save();
    }
 }

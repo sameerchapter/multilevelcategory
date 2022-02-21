@@ -16,10 +16,15 @@ Route::get('/add-category','CategoryController@create');
 Route::post('/store-category','CategoryController@store');
 Route::get('/order/{id}','CategoryController@order');
 Route::post('/stripe','StripeController@index');
+Route::get('/categories','CategoryController@list_categories');
+Route::post('/delete-cat','CategoryController@delete');
+Route::get('/category/edit/{id}','CategoryController@edit');
+Route::post('/update-category/{id}','CategoryController@update');
 });
 
 Route::get('/','CategoryController@index');
 Route::get('/category/{id}','CategoryController@subcategory');
 Route::get('login', 'CustomAuthController@index')->name('login');
 Route::post('/login','CustomAuthController@customLogin');
-Route::get('/registration','CustomAuthController@registration');
+Route::get('/registration','CustomAuthController@adduser');
+Route::post('/registration','CustomAuthController@updateuser');

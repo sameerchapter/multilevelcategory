@@ -14,7 +14,7 @@
 }
 
 body {
-  background: #111 !important;
+  background: linear-gradient(to left, #3a6186 , #89253e);
 }
 
 .card {
